@@ -169,8 +169,7 @@
                 "displayName": "VirtualMachine"
             },
             "dependsOn": [
-                "[variables('nicName')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))]"
+                "[variables('nicName')]"
             ],
             "properties": {
                 "hardwareProfile": {
