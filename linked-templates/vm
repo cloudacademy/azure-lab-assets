@@ -91,9 +91,9 @@
             "metadata": {
                 "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
             }
-        }
+        },
         "storageUri": {
-        "type": "string",
+        "type": "string"
        }
     },
     "variables": {
@@ -102,8 +102,7 @@
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
         "publicIPAddressName": "publicIp",
         "diskName": "[concat(parameters('vmName'), '-disk')]",
-        "image": "[concat('/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/QACA/providers/Microsoft.Compute/galleries/',parameters('imageGallery'),'/images/',parameters('imageName'))]",
-        "diagStorageAccountName": "[concat(uniquestring(resourceGroup().id), 'vmdiag')]"
+        "image": "[concat('/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/QACA/providers/Microsoft.Compute/galleries/',parameters('imageGallery'),'/images/',parameters('imageName'))]"
     },
     "resources": [
                 {
