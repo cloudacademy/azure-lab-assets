@@ -134,8 +134,7 @@
             "location": "[parameters('location')]",
             "dependsOn": [
                 "[variables('publicIPAddressName')]",
-                "[parameters('networkSecurityGroupName')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+                "[parameters('networkSecurityGroupName')]"
             ],
             "tags": {
                 "displayName": "NetworkInterface"
