@@ -92,6 +92,9 @@
                 "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
             }
         }
+        "storageUri": {
+        "type": "string",
+       }
     },
     "variables": {
         "subnetRef": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'),  parameters('subnetName'))]",
@@ -198,7 +201,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]"
+                        "storageUri": "[parameters('storageUri')]"
                     }
                 }
             }
