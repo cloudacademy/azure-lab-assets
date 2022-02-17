@@ -99,7 +99,8 @@
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
         "publicIPAddressName": "publicIp",
         "diskName": "[concat(parameters('vmName'), '-disk')]",
-        "image": "[concat('/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/QACA/providers/Microsoft.Compute/galleries/',parameters('imageGallery'),'/images/',parameters('imageName'))]"
+        "image": "[concat('/subscriptions/c4fd644c-22da-4e2e-8c6c-86dfa6a28964/resourceGroups/QACA/providers/Microsoft.Compute/galleries/',parameters('imageGallery'),'/images/',parameters('imageName'))]",
+        "diagStorageAccountName": "[concat(uniquestring(resourceGroup().id), 'vmdiag')]" 
     },
     "resources": [
                 {
@@ -197,7 +198,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[parameters('storageUri')]"
+                        "storageUri": "[reference(variables('diagStorageAccountName')).primaryEndpoints.blob]"
                     }
                 }
             }
