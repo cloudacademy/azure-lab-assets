@@ -84,7 +84,7 @@ configuration CreateADPDC
             SafemodeAdministratorPassword = $DomainCreds
             DatabasePath = "C:\NTDS"
             LogPath = "C:\NTDS"
-            SysvolPath = "F:\SYSVOL"
+            SysvolPath = "C:\SYSVOL"
 	        DependsOn = @("[WindowsFeature]ADDSInstall")
         } 
 
