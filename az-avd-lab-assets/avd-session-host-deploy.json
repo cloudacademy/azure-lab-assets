@@ -32,8 +32,11 @@
       },
       "defaultValue": ""
     },
-    "sessionhostImage": {
+    "vmGalleryImageVersion": {
       "type": "string",
+      "metadata": {
+        "description": "(Required when vmImageType = Gallery) Gallery image version."
+      },
       "defaultValue": ""
     },
     "rdshPrefix": {
@@ -198,9 +201,17 @@
         "hardwareProfile": {
           "vmSize": "[parameters('rdshVmSize')]"
         },
+        "osProfile": {
+          "computerName": "[concat(parameters('rdshPrefix'), add(copyindex(), parameters('vmInitialNumber')))]",
+          "adminUsername": "[variables('vmAdministratorUsername')]",
+          "adminPassword": "[variables('vmAdministratorPassword')]"
+        },
         "storageProfile": {
           "imageReference": {
-            "id": "[parameters('sessionhostImage')]"
+            "publisher": "[parameters('vmGalleryImagePublisher')]",
+            "offer": "[parameters('vmGalleryImageOffer')]",
+            "sku": "[parameters('vmGalleryImageSKU')]",
+            "version": "[if(empty(parameters('vmGalleryImageVersion')), 'latest', parameters('vmGalleryImageVersion'))]"
           },
           "osDisk": {
             "createOption": "FromImage",
