@@ -32,11 +32,8 @@
       },
       "defaultValue": ""
     },
-    "vmGalleryImageVersion": {
+    "sessionhostImage": {
       "type": "string",
-      "metadata": {
-        "description": "(Required when vmImageType = Gallery) Gallery image version."
-      },
       "defaultValue": ""
     },
     "rdshPrefix": {
@@ -208,10 +205,7 @@
         },
         "storageProfile": {
           "imageReference": {
-            "publisher": "[parameters('vmGalleryImagePublisher')]",
-            "offer": "[parameters('vmGalleryImageOffer')]",
-            "sku": "[parameters('vmGalleryImageSKU')]",
-            "version": "[if(empty(parameters('vmGalleryImageVersion')), 'latest', parameters('vmGalleryImageVersion'))]"
+            "id": "[parameters('sessionhostImage')]"
           },
           "osDisk": {
             "createOption": "FromImage",
