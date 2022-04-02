@@ -198,11 +198,6 @@
         "hardwareProfile": {
           "vmSize": "[parameters('rdshVmSize')]"
         },
-        "osProfile": {
-          "computerName": "[concat(parameters('rdshPrefix'), add(copyindex(), parameters('vmInitialNumber')))]",
-          "adminUsername": "[variables('vmAdministratorUsername')]",
-          "adminPassword": "[variables('vmAdministratorPassword')]"
-        },
         "storageProfile": {
           "imageReference": {
             "id": "[parameters('sessionhostImage')]"
